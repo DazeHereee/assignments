@@ -8,6 +8,21 @@ Hint - use Date class exposed in JS
 There is no automated test for this one, this is more for you to understand time goes up as computation goes up
 */
 
-function calculateTime(n) {
-    return 0.01;
+function Sum(n){
+    let sum = 0;
+    for(let i = 1; i<=n; i++){
+        sum = i + sum;
+    }
+    console.log(sum);
 }
+function calculateTime(n) {
+    let beforeDate = new Date();
+    let beforeTimeInMs = beforeDate.getTime();
+    Sum(n);
+    let afterDate = new Date();
+    let afterTimeInMs = afterDate.getTime();
+    let totalTimeTaken = afterTimeInMs - beforeTimeInMs;
+    console.log(`time elapsed ${totalTimeTaken/1000} s`);
+}
+
+calculateTime(10000000);
